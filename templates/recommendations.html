@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Your Recommendations{% endblock %}
+{% block content %}
+<h1>Your recommended side hustles</h1>
+<p class="muted">Ranked by suitability score, based on your skills, interests, time, and earning goal.
+    <a href="{{ url_for('profile') }}">Edit profile</a></p>
+
+{% for r in results %}
+<div class="card hustle-card">
+    <div class="info">
+        <h3><a href="{{ url_for('hustle_detail', hustle_id=r.hustle.id) }}">{{ r.hustle.name }}</a></h3>
+        <p class="muted">{{ r.hustle.description }}</p>
+        <span class="tag">{{ r.hustle.category }}</span>
+        <span class="tag">{{ r.hustle.difficulty }}</span>
+        <span class="tag">{{ r.hustle.time_required_hours_per_week[0] }}-{{ r.hustle.time_required_hours_per_week[1] }} hrs/wk</span>
+        <span class="tag">Investment: {{ r.hustle.investment_level }}</span>
+        <span class="tag">Rs. {{ "{:,}".format(r.estimated_earning_range[0]) }} - {{ "{:,}".format(r.estimated_earning_range[1]) }}/mo</span>
+        {% if r.skill_gap %}
+            <p class="muted" style="margin-top:8px;">Missing skills:
+                {% for s in r.skill_gap[:4] %}<span class="tag gap">{{ s }}</span>{% endfor %}
+            </p>
+        {% endif %}
+        <div style="margin-top:10px;">
+            <a class="btn" href="{{ url_for('hustle_detail', hustle_id=r.hustle.id) }}">View Details</a>
+            {% if r.hustle.id in saved_ids %}
+                <span class="muted" style="margin-left:8px;">✓ Saved</span>
+            {% else %}
+                <form method="POST" action="{{ url_for('save_hustle', hustle_id=r.hustle.id) }}" style="display:inline;">
+                    <button type="submit" class="btn-secondary" style="margin-top:0;">Save</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+    <div class="score-badge">{{ r.suitability_score }}%</div>
+</div>
+{% endfor %}
+{% endblock %}

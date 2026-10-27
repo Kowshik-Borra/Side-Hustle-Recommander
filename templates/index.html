@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Side Hustle Recommender{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Find your next side hustle</h1>
+    <p class="muted">Personalized recommendations from a catalog of {{ hustle_count }} side hustle opportunities,
+        matched to your skills, interests, time, and earning goals.</p>
+    {% if current_user %}
+        <a class="btn" href="{{ url_for('recommendations') }}">View My Recommendations</a>
+    {% else %}
+        <a class="btn" href="{{ url_for('register') }}">Get Started</a>
+        <a class="btn btn-secondary" href="{{ url_for('login') }}">Login</a>
+    {% endif %}
+</div>
+
+<div class="grid-2">
+    <div class="card">
+        <h3>🎯 Personalized Matching</h3>
+        <p class="muted">We analyze your skills, interests, available time, experience, and earning goals to
+            score every opportunity in the catalog.</p>
+    </div>
+    <div class="card">
+        <h3>📊 Suitability Scoring</h3>
+        <p class="muted">Each recommendation comes with a suitability score, an estimated earning range, and a
+            skill-gap breakdown.</p>
+    </div>
+    <div class="card">
+        <h3>📈 Skill Gap Analysis</h3>
+        <p class="muted">See exactly which skills you're missing for a hustle, and which ones to prioritize
+            learning first.</p>
+    </div>
+    <div class="card">
+        <h3>📝 Personal Report</h3>
+        <p class="muted">Generate a downloadable report summarizing your top matches and a roadmap to get
+            started.</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+[
+  {
+    "user_id": "74b7c68a-3388-4866-96d5-f476301e4ef4",
+    "username": "Keerthi123",
+    "email": "keerthi@gmail.com",
+    "password_hash": "scrypt:32768:8:1$a0m0cgC5L22GCmBc$5e5b0445f8b6e2d80f1b867c732e89fe6c19514024f6ac8fe126594107ae2e153d08becbbe4ad8b66940b16588ed3eb2d8d889a3eef22d82be8d288442b30042",
+    "full_name": "Keerthi Sri",
+    "skills": [],
+    "interests": [],
+    "experience_level": "Beginner",
+    "available_time_hours": 5,
+    "earning_goal_monthly": 5000,
+    "investment_capacity": "None",
+    "saved_hustles": [],
+    "created_at": "2026-09-08T04:47:14.675463"
+  },
+  {
+    "user_id": "7617697e-204a-4bf7-9a5a-c48caf9f2fc5",
+    "username": "kowshik",
+    "email": "kowshik8305@gmail.com",
+    "password_hash": "scrypt:32768:8:1$ORQ8xJLzt8BqDdfn$e81ba3e1f30f94caa5df4b0098529f53df6560a91d416ddde0e503d6e7094774fa2d37338c6e87ee23871185721fad02e96c801cd6646528125b38060637a469",
+    "full_name": "kowshik",
+    "skills": [
+      "PYTHON",
+      "HTML",
+      "CSS",
+      "JAVASCRIPT"
+    ],
+    "interests": [
+      "technology"
+    ],
+    "experience_level": "Beginner",
+    "available_time_hours": 4,
+    "earning_goal_monthly": 5000,
+    "investment_capacity": "None",
+    "saved_hustles": [],
+    "created_at": "2026-09-09T05:35:19.320839"
+  }
+]

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}My Profile{% endblock %}
+{% block content %}
+<h1>Your profile</h1>
+<p class="muted">Tell us about yourself so we can match you with the right side hustles.</p>
+
+<form class="form-panel" method="POST">
+    <label for="full_name">Full name</label>
+    <input type="text" id="full_name" name="full_name" value="{{ user.full_name }}">
+
+    <label for="skills">Skills <span class="muted">(comma-separated, e.g. Python, Writing, Photoshop)</span></label>
+    <textarea id="skills" name="skills" rows="2">{{ user.skills | join(', ') }}</textarea>
+
+    <label for="interests">Interests <span class="muted">(comma-separated, e.g. Technology, Design, Teaching)</span></label>
+    <textarea id="interests" name="interests" rows="2">{{ user.interests | join(', ') }}</textarea>
+
+    <label for="experience_level">Experience level</label>
+    <select id="experience_level" name="experience_level">
+        {% for level in ["Beginner", "Intermediate", "Advanced"] %}
+            <option value="{{ level }}" {% if user.experience_level == level %}selected{% endif %}>{{ level }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="available_time_hours">Available time (hours/week)</label>
+    <input type="number" id="available_time_hours" name="available_time_hours" min="1" max="80"
+           value="{{ user.available_time_hours }}">
+
+    <label for="earning_goal_monthly">Earning goal (Rs./month)</label>
+    <input type="number" id="earning_goal_monthly" name="earning_goal_monthly" min="0"
+           value="{{ user.earning_goal_monthly }}">
+
+    <label for="investment_capacity">Investment capacity</label>
+    <select id="investment_capacity" name="investment_capacity">
+        {% for level in ["None", "Low", "Medium", "High"] %}
+            <option value="{{ level }}" {% if user.investment_capacity == level %}selected{% endif %}>{{ level }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Save Profile</button>
+</form>
+{% endblock %}

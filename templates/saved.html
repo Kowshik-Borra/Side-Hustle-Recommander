@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Saved Side Hustles{% endblock %}
+{% block content %}
+<h1>Your saved side hustles</h1>
+
+{% if not entries %}
+    <p class="muted">You haven't saved any side hustles yet. <a href="{{ url_for('recommendations') }}">Browse recommendations</a></p>
+{% endif %}
+
+{% for entry in entries %}
+<div class="card">
+    <h3><a href="{{ url_for('hustle_detail', hustle_id=entry.hustle.id) }}">{{ entry.hustle.name }}</a></h3>
+    <p class="muted">{{ entry.hustle.category }} &middot; Saved {{ entry.saved_at[:10] }}</p>
+    <form method="POST" action="{{ url_for('update_status', hustle_id=entry.hustle.id) }}" style="display:flex; gap:10px; align-items:center;">
+        <label style="margin:0;">Status:</label>
+        <select name="status" onchange="this.form.submit()">
+            {% for s in ["Interested", "Learning Skills", "In Progress", "Started Earning", "Not Pursuing"] %}
+                <option value="{{ s }}" {% if entry.status == s %}selected{% endif %}>{{ s }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    <form method="POST" action="{{ url_for('unsave_hustle', hustle_id=entry.hustle.id) }}">
+        <button type="submit" class="btn-danger">Remove</button>
+    </form>
+</div>
+{% endfor %}
+{% endblock %}

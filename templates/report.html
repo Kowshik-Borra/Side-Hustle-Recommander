@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Your Report{% endblock %}
+{% block content %}
+<h1>Your personalized recommendation report</h1>
+<p class="muted">Generated for {{ user.full_name or user.username }} based on your current profile.</p>
+
+<div class="card">
+    <img class="chart-img" src="{{ url_for('static', filename=chart_path) }}" alt="Top matches chart">
+</div>
+
+<div class="card">
+    <h3>Top 5 matches</h3>
+    <table>
+        <tr><th>Side Hustle</th><th>Score</th><th>Est. Earnings/mo</th><th>Missing Skills</th></tr>
+        {% for r in results %}
+        <tr>
+            <td><a href="{{ url_for('hustle_detail', hustle_id=r.hustle.id) }}">{{ r.hustle.name }}</a></td>
+            <td>{{ r.suitability_score }}%</td>
+            <td>Rs. {{ "{:,}".format(r.estimated_earning_range[0]) }}-{{ "{:,}".format(r.estimated_earning_range[1]) }}</td>
+            <td>{{ r.skill_gap | join(', ') if r.skill_gap else 'None' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<a class="btn" href="{{ url_for('download_report', filename=report_download.split('/')[-1]) }}">Download Full Report (.txt)</a>
+{% endblock %}

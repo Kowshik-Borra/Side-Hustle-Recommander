@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}{{ hustle.name }}{% endblock %}
+{% block content %}
+<a href="{{ url_for('recommendations') }}" class="muted">&larr; Back to recommendations</a>
+<h1>{{ hustle.name }}</h1>
+<p class="muted">{{ hustle.description }}</p>
+
+<div class="card">
+    <h3>Suitability score: {{ result.suitability_score }}%</h3>
+    {% for label, key in [("Skill match", "skill_match"), ("Time fit", "time_fit"), ("Earning fit", "earning_fit"), ("Difficulty fit", "difficulty_fit"), ("Investment fit", "investment_fit")] %}
+        {% set pct = (result.to_dict().breakdown[key] * 100) | round(0) %}
+        <p style="margin-bottom:2px;">{{ label }} &mdash; {{ pct }}%</p>
+        <div class="breakdown-bar"><div class="fill" style="width: {{ pct }}%;"></div></div>
+    {% endfor %}
+</div>
+
+<div class="grid-2">
+    <div class="card">
+        <h3>Overview</h3>
+        <p><strong>Category:</strong> {{ hustle.category }}</p>
+        <p><strong>Difficulty:</strong> {{ hustle.difficulty }}</p>
+        <p><strong>Time required:</strong> {{ hustle.time_required_hours_per_week[0] }}-{{ hustle.time_required_hours_per_week[1] }} hrs/week</p>
+        <p><strong>Investment level:</strong> {{ hustle.investment_level }} (Rs. {{ "{:,}".format(hustle.investment_amount_range[0]) }}-{{ "{:,}".format(hustle.investment_amount_range[1]) }})</p>
+        <p><strong>Estimated earnings:</strong> Rs. {{ "{:,}".format(hustle.earning_range_monthly[0]) }} - {{ "{:,}".format(hustle.earning_range_monthly[1]) }}/month</p>
+        <p><strong>Time to first income:</strong> ~{{ hustle.time_to_first_income_weeks }} weeks</p>
+    </div>
+    <div class="card">
+        <h3>Required skills</h3>
+        {% for s in hustle.required_skills %}<span class="tag">{{ s }}</span>{% endfor %}
+        <h3 style="margin-top:16px;">Resources needed</h3>
+        {% for r in hustle.resources_needed %}<span class="tag">{{ r }}</span>{% endfor %}
+    </div>
+</div>
+
+<div class="card">
+    <h3>Skill gap analysis</h3>
+    {% if result.skill_gap %}
+        <p class="muted">You're missing the following skills for this hustle:</p>
+        {% for s in result.skill_gap %}<span class="tag gap">{{ s }}</span>{% endfor %}
+        <h4 style="margin-top:14px;">Recommended to learn first</h4>
+        {% for s in suggested_skills %}<span class="tag">{{ s }}</span>{% endfor %}
+    {% else %}
+        <p class="muted">✓ You already have all the core skills required for this hustle!</p>
+    {% endif %}
+</div>
+
+{% if is_saved %}
+    <form method="POST" action="{{ url_for('unsave_hustle', hustle_id=hustle.id) }}">
+        <button type="submit" class="btn-danger">Remove from Saved</button>
+    </form>
+{% else %}
+    <form method="POST" action="{{ url_for('save_hustle', hustle_id=hustle.id) }}">
+        <button type="submit">Save this Side Hustle</button>
+    </form>
+{% endif %}
+{% endblock %}

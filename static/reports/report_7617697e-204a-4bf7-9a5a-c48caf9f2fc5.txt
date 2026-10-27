@@ -1,0 +1,82 @@
+======================================================================
+PERSONALIZED SIDE HUSTLE RECOMMENDATION REPORT
+======================================================================
+Generated for: kowshik (@kowshik)
+Generated on : 2026-09-11 05:02 UTC
+
+YOUR PROFILE
+----------------------------------------------------------------------
+Skills            : python
+Interests         : technology
+Experience level  : Beginner
+Available time    : 5 hrs/week
+Earning goal      : Rs. 5,000/month
+Investment budget : None
+
+TOP 5 RECOMMENDATIONS
+----------------------------------------------------------------------
+
+1. Freelance Web Development  (Suitability: 65.3%)
+   Category         : Freelancing
+   Difficulty       : Medium
+   Time required    : 5-20 hrs/week
+   Investment level : Low
+   Estimated earning: Rs. 8,000 - Rs. 60,000 /month
+   Time to first income: ~3 weeks
+   Required skills  : HTML, CSS, JavaScript, Python, Problem Solving
+   Resources needed : Laptop, Internet connection, Portfolio website, Upwork/Fiverr account
+   Skill gap        : HTML, CSS, JavaScript, Problem Solving
+   Suggested to learn first: HTML, CSS, JavaScript, Problem Solving
+
+2. Content Writing  (Suitability: 60.0%)
+   Category         : Freelancing
+   Difficulty       : Beginner
+   Time required    : 3-15 hrs/week
+   Investment level : None
+   Estimated earning: Rs. 4,000 - Rs. 30,000 /month
+   Time to first income: ~1 weeks
+   Required skills  : Writing, Grammar, Research, SEO
+   Resources needed : Laptop, Internet, Grammarly/Docs
+   Skill gap        : Writing, Grammar, Research, SEO
+   Suggested to learn first: Grammar, Research, Writing, SEO
+
+3. Social Media Management  (Suitability: 60.0%)
+   Category         : Digital Services
+   Difficulty       : Beginner
+   Time required    : 5-15 hrs/week
+   Investment level : None
+   Estimated earning: Rs. 5,000 - Rs. 35,000 /month
+   Time to first income: ~2 weeks
+   Required skills  : Social Media Marketing, Content Planning, Communication, Canva
+   Resources needed : Smartphone/Laptop, Canva account, Scheduling tool
+   Skill gap        : Social Media Marketing, Content Planning, Communication, Canva
+   Suggested to learn first: Social Media Marketing, Canva, Content Planning, Communication
+
+4. Virtual Assistant  (Suitability: 60.0%)
+   Category         : Digital Services
+   Difficulty       : Beginner
+   Time required    : 5-25 hrs/week
+   Investment level : None
+   Estimated earning: Rs. 5,000 - Rs. 25,000 /month
+   Time to first income: ~1 weeks
+   Required skills  : Organization, Communication, MS Office, Email Management
+   Resources needed : Laptop, Internet, Google Workspace
+   Skill gap        : Organization, Communication, MS Office, Email Management
+   Suggested to learn first: Organization, MS Office, Email Management, Communication
+
+5. Online Tutoring  (Suitability: 60.0%)
+   Category         : Education
+   Difficulty       : Beginner
+   Time required    : 4-20 hrs/week
+   Investment level : None
+   Estimated earning: Rs. 4,000 - Rs. 35,000 /month
+   Time to first income: ~2 weeks
+   Required skills  : Subject Expertise, Communication, Patience, Teaching
+   Resources needed : Laptop, Webcam, Tutoring platform (Vedantu/Chegg)
+   Skill gap        : Subject Expertise, Communication, Patience, Teaching
+   Suggested to learn first: Subject Expertise, Patience, Teaching, Communication
+
+======================================================================
+Tip: Save the hustles you're most interested in from the app to
+track your progress toward getting started.
+======================================================================
